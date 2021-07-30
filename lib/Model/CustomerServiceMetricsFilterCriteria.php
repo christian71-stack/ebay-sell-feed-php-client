@@ -45,7 +45,7 @@ use \Ebay\Sell\Feed\ObjectSerializer;
  */
 class CustomerServiceMetricsFilterCriteria implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -194,10 +194,10 @@ class CustomerServiceMetricsFilterCriteria implements ModelInterface, ArrayAcces
      */
     public function __construct(array $data = null)
     {
-        $this->container['customer_service_metric_type'] = $data['customer_service_metric_type'] ?? null;
-        $this->container['evaluation_marketplace_id'] = $data['evaluation_marketplace_id'] ?? null;
-        $this->container['listing_categories'] = $data['listing_categories'] ?? null;
-        $this->container['shipping_regions'] = $data['shipping_regions'] ?? null;
+        $this->container['customer_service_metric_type'] = isset($data['customer_service_metric_type']) ? $data['customer_service_metric_type'] : null;
+        $this->container['evaluation_marketplace_id'] = isset($data['evaluation_marketplace_id']) ? $data['evaluation_marketplace_id'] : null;
+        $this->container['listing_categories'] = isset($data['listing_categories']) ? $data['listing_categories'] : null;
+        $this->container['shipping_regions'] = isset($data['shipping_regions']) ? $data['shipping_regions'] : null;
     }
 
     /**
@@ -340,7 +340,7 @@ class CustomerServiceMetricsFilterCriteria implements ModelInterface, ArrayAcces
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

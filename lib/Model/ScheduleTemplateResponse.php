@@ -45,7 +45,7 @@ use \Ebay\Sell\Feed\ObjectSerializer;
  */
 class ScheduleTemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -204,12 +204,12 @@ class ScheduleTemplateResponse implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(array $data = null)
     {
-        $this->container['feed_type'] = $data['feed_type'] ?? null;
-        $this->container['frequency'] = $data['frequency'] ?? null;
-        $this->container['name'] = $data['name'] ?? null;
-        $this->container['schedule_template_id'] = $data['schedule_template_id'] ?? null;
-        $this->container['status'] = $data['status'] ?? null;
-        $this->container['supported_configurations'] = $data['supported_configurations'] ?? null;
+        $this->container['feed_type'] = isset($data['feed_type']) ? $data['feed_type'] : null;
+        $this->container['frequency'] = isset($data['frequency']) ? $data['frequency'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['schedule_template_id'] = isset($data['schedule_template_id']) ? $data['schedule_template_id'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['supported_configurations'] = isset($data['supported_configurations']) ? $data['supported_configurations'] : null;
     }
 
     /**
@@ -400,7 +400,7 @@ class ScheduleTemplateResponse implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

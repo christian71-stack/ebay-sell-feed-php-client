@@ -45,7 +45,7 @@ use \Ebay\Sell\Feed\ObjectSerializer;
  */
 class CreateOrderTaskRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -189,9 +189,9 @@ class CreateOrderTaskRequest implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->container['feed_type'] = $data['feed_type'] ?? null;
-        $this->container['filter_criteria'] = $data['filter_criteria'] ?? null;
-        $this->container['schema_version'] = $data['schema_version'] ?? null;
+        $this->container['feed_type'] = isset($data['feed_type']) ? $data['feed_type'] : null;
+        $this->container['filter_criteria'] = isset($data['filter_criteria']) ? $data['filter_criteria'] : null;
+        $this->container['schema_version'] = isset($data['schema_version']) ? $data['schema_version'] : null;
     }
 
     /**
@@ -310,7 +310,7 @@ class CreateOrderTaskRequest implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

@@ -45,7 +45,7 @@ use \Ebay\Sell\Feed\ObjectSerializer;
  */
 class SupportedConfiguration implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -189,9 +189,9 @@ class SupportedConfiguration implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->container['default_value'] = $data['default_value'] ?? null;
-        $this->container['property'] = $data['property'] ?? null;
-        $this->container['usage'] = $data['usage'] ?? null;
+        $this->container['default_value'] = isset($data['default_value']) ? $data['default_value'] : null;
+        $this->container['property'] = isset($data['property']) ? $data['property'] : null;
+        $this->container['usage'] = isset($data['usage']) ? $data['usage'] : null;
     }
 
     /**
@@ -310,7 +310,7 @@ class SupportedConfiguration implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

@@ -45,7 +45,7 @@ use \Ebay\Sell\Feed\ObjectSerializer;
  */
 class OrderTask implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -219,15 +219,15 @@ class OrderTask implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['completion_date'] = $data['completion_date'] ?? null;
-        $this->container['creation_date'] = $data['creation_date'] ?? null;
-        $this->container['detail_href'] = $data['detail_href'] ?? null;
-        $this->container['feed_type'] = $data['feed_type'] ?? null;
-        $this->container['filter_criteria'] = $data['filter_criteria'] ?? null;
-        $this->container['schema_version'] = $data['schema_version'] ?? null;
-        $this->container['status'] = $data['status'] ?? null;
-        $this->container['task_id'] = $data['task_id'] ?? null;
-        $this->container['upload_summary'] = $data['upload_summary'] ?? null;
+        $this->container['completion_date'] = isset($data['completion_date']) ? $data['completion_date'] : null;
+        $this->container['creation_date'] = isset($data['creation_date']) ? $data['creation_date'] : null;
+        $this->container['detail_href'] = isset($data['detail_href']) ? $data['detail_href'] : null;
+        $this->container['feed_type'] = isset($data['feed_type']) ? $data['feed_type'] : null;
+        $this->container['filter_criteria'] = isset($data['filter_criteria']) ? $data['filter_criteria'] : null;
+        $this->container['schema_version'] = isset($data['schema_version']) ? $data['schema_version'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
+        $this->container['upload_summary'] = isset($data['upload_summary']) ? $data['upload_summary'] : null;
     }
 
     /**
@@ -490,7 +490,7 @@ class OrderTask implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

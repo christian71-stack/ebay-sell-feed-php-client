@@ -45,7 +45,7 @@ use \Ebay\Sell\Feed\ObjectSerializer;
  */
 class UserScheduleResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -244,20 +244,20 @@ class UserScheduleResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(array $data = null)
     {
-        $this->container['schedule_id'] = $data['schedule_id'] ?? null;
-        $this->container['creation_date'] = $data['creation_date'] ?? null;
-        $this->container['feed_type'] = $data['feed_type'] ?? null;
-        $this->container['last_modified_date'] = $data['last_modified_date'] ?? null;
-        $this->container['preferred_trigger_day_of_month'] = $data['preferred_trigger_day_of_month'] ?? null;
-        $this->container['preferred_trigger_day_of_week'] = $data['preferred_trigger_day_of_week'] ?? null;
-        $this->container['preferred_trigger_hour'] = $data['preferred_trigger_hour'] ?? null;
-        $this->container['schedule_end_date'] = $data['schedule_end_date'] ?? null;
-        $this->container['schedule_name'] = $data['schedule_name'] ?? null;
-        $this->container['schedule_start_date'] = $data['schedule_start_date'] ?? null;
-        $this->container['schedule_template_id'] = $data['schedule_template_id'] ?? null;
-        $this->container['schema_version'] = $data['schema_version'] ?? null;
-        $this->container['status'] = $data['status'] ?? null;
-        $this->container['status_reason'] = $data['status_reason'] ?? null;
+        $this->container['schedule_id'] = isset($data['schedule_id']) ? $data['schedule_id'] : null;
+        $this->container['creation_date'] = isset($data['creation_date']) ? $data['creation_date'] : null;
+        $this->container['feed_type'] = isset($data['feed_type']) ? $data['feed_type'] : null;
+        $this->container['last_modified_date'] = isset($data['last_modified_date']) ? $data['last_modified_date'] : null;
+        $this->container['preferred_trigger_day_of_month'] = isset($data['preferred_trigger_day_of_month']) ? $data['preferred_trigger_day_of_month'] : null;
+        $this->container['preferred_trigger_day_of_week'] = isset($data['preferred_trigger_day_of_week']) ? $data['preferred_trigger_day_of_week'] : null;
+        $this->container['preferred_trigger_hour'] = isset($data['preferred_trigger_hour']) ? $data['preferred_trigger_hour'] : null;
+        $this->container['schedule_end_date'] = isset($data['schedule_end_date']) ? $data['schedule_end_date'] : null;
+        $this->container['schedule_name'] = isset($data['schedule_name']) ? $data['schedule_name'] : null;
+        $this->container['schedule_start_date'] = isset($data['schedule_start_date']) ? $data['schedule_start_date'] : null;
+        $this->container['schedule_template_id'] = isset($data['schedule_template_id']) ? $data['schedule_template_id'] : null;
+        $this->container['schema_version'] = isset($data['schema_version']) ? $data['schema_version'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['status_reason'] = isset($data['status_reason']) ? $data['status_reason'] : null;
     }
 
     /**
@@ -640,7 +640,7 @@ class UserScheduleResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

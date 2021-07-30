@@ -45,7 +45,7 @@ use \Ebay\Sell\Feed\ObjectSerializer;
  */
 class OrderFilterCriteria implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -189,9 +189,9 @@ class OrderFilterCriteria implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['creation_date_range'] = $data['creation_date_range'] ?? null;
-        $this->container['modified_date_range'] = $data['modified_date_range'] ?? null;
-        $this->container['order_status'] = $data['order_status'] ?? null;
+        $this->container['creation_date_range'] = isset($data['creation_date_range']) ? $data['creation_date_range'] : null;
+        $this->container['modified_date_range'] = isset($data['modified_date_range']) ? $data['modified_date_range'] : null;
+        $this->container['order_status'] = isset($data['order_status']) ? $data['order_status'] : null;
     }
 
     /**
@@ -310,7 +310,7 @@ class OrderFilterCriteria implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**
