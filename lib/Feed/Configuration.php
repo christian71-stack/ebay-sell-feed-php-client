@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace Ebay\Sell;
+namespace Ebay\Sell\Feed;
 
 /**
  * Configuration Class Doc Comment
